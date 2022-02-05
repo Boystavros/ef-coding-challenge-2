@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     const reviewWords = reviews.map((review) => {
-      return review.match(/\b[\w']+\b/g)})
+      return review.toLowerCase().match(/\b[\w']+\b/g)})
     setSplitReviews(reviewWords)
   }, [reviews])
 
