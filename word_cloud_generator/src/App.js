@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import WordTable from './Components/WordTable';
 import 'bootstrap/dist/css/bootstrap.css'
+import ReviewWordCloud from './Components/ReviewWordCloud';
 
 function App() {
   
@@ -36,7 +37,6 @@ function App() {
     const wordItemsArr = Object.keys(tempWords).map((word) => {
       return {word: word, occurences: tempWords[word]}
     })
-    console.log(wordItemsArr)
     setWordFrequencies(wordItemsArr);
   }, [splitReviews])
 
@@ -45,8 +45,7 @@ function App() {
     <>
       <h1>Word occurences table</h1>
       <WordTable wordFrequencies={wordFrequencies}/>
-      <h1>Word Cloud</h1>
-      
+      <ReviewWordCloud wordFrequencies={wordFrequencies}/>
     </>
   );
 }

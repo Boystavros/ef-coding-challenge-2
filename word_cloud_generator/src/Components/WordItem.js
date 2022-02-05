@@ -1,10 +1,9 @@
-const WordItem = ({word, occurences}) => {
+const WordItem = ({word}) => {
     
-    return (
-        <tr>
-            <td>{word}</td><td>{occurences}</td>
-        </tr>
-    )
+    return  <tr>
+                <td>{word.word}</td>
+                <td>{word.occurences}</td>
+            </tr>
 }
 
 export default WordItem;
