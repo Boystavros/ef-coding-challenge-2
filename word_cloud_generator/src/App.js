@@ -1,30 +1,31 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import WordTable from './Components/WordItem';
-import ReviewData from './ReviewData';
 
 function App() {
   
   const [reviews, setReviews] = useState([]);
-  const [words, setWords] = useState([]);
-
-  // const url = ReviewData[reviews];
+  const [words, setWords] = useState({});
   
   useEffect(() => {
-    setReviews(ReviewData[reviews]);
+    getData()
   }, [])
 
-  // const getReviews = () => {
-  //   fetch('../../reviews.json')
-  //   .then(res => res.json())
-  //   .then(reviews => setReviews(reviews))
-  // }
+  useEffect(() => {
+    const review = reviews[9];
+    console.log(review)
+    getReviewWords(review)
+  }, [reviews])
 
-  // const getWords = () => {
-  //   const reviewWords = reviews.map((review) => {
-      
-  //   })
-  // }
+  const getData = () => {
+    fetch(`reviews.json`)
+    .then(res => res.json())
+    .then(res => setReviews(res.reviews))
+  }
+
+  const getReviewWords = (review) => { 
+    console.log(review.match(/\b[\w']+\b/g))
+  }
   
   return (
     <>
