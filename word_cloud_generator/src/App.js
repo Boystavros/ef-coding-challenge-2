@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import WordTable from './Components/WordTable';
+import 'bootstrap/dist/css/bootstrap.css'
 
 function App() {
   
@@ -42,8 +43,10 @@ function App() {
   
   return (
     <>
-      <h1>This is the main container</h1>
+      <h1>Word occurences table</h1>
       <WordTable wordFrequencies={wordFrequencies}/>
+      <h1>Word Cloud</h1>
+      
     </>
   );
 }

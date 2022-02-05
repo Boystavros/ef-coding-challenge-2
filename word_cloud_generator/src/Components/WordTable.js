@@ -1,24 +1,28 @@
-import WordItem from './WordItem'
+import WordItem from './WordItem';
+import { Table } from 'react-bootstrap';
 
 const WordTable = ({wordFrequencies}) => {
     
-    const wordItems = wordFrequencies.map((uniqueWord, index) => {
-        return <WordItem word={uniqueWord.word} occurences={uniqueWord.occurences} key={index} />
+    const wordItems = wordFrequencies.map((uniqueWord) => {
+        return  <tr>
+                    <td>{uniqueWord.word}</td>
+                    <td>{uniqueWord.occurences}</td>
+                </tr>
     })
     
     return (
         <>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Word</th>
-                        <th>Occurences</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { wordItems }
-                </tbody>
-            </table>
+            <Table size="sm" striped hover className='table'>
+            <thead>
+                <tr>
+                    <th>Word</th>
+                    <th>Occurences</th>
+                </tr>
+            </thead>
+            <tbody>
+                { wordItems }
+            </tbody>
+            </Table>
         </>
             
     )
