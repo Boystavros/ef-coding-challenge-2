@@ -4,10 +4,7 @@ import { Table } from 'react-bootstrap';
 const WordTable = ({wordFrequencies}) => {
     
     const wordItems = wordFrequencies.map((uniqueWord) => {
-        return  <tr>
-                    <td>{uniqueWord.word}</td>
-                    <td>{uniqueWord.occurences}</td>
-                </tr>
+        return  <WordItem word={uniqueWord} />
     })
     
     return (
@@ -23,8 +20,7 @@ const WordTable = ({wordFrequencies}) => {
                 { wordItems }
             </tbody>
             </Table>
-        </>
-            
+        </>            
     )
 }
 
