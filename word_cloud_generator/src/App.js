@@ -5,8 +5,15 @@ import WordTable from './Components/WordItem';
 function App() {
   
   const [reviews, setReviews] = useState([]);
-  const [words, setWords] = useState({});
+  const [splitReviews, setSplitReviews] = useState([]);
+  const [wordFrequency, setWordFrequency] = useState({});
   
+  const getReviews = () => {
+    fetch(`reviews.json`)
+    .then(res => res.json())
+    .then(res => setReviews(res.reviews))
+  }
+
   useEffect(() => {
     getReviews()
   }, [])
@@ -14,19 +21,18 @@ function App() {
   useEffect(() => {
     const reviewWords = reviews.map((review) => {
       return review.match(/\b[\w']+\b/g)})
-    setWords(reviewWords)
-
+    setSplitReviews(reviewWords)
   }, [reviews])
 
-  const getReviews = () => {
-    fetch(`reviews.json`)
-    .then(res => res.json())
-    .then(res => setReviews(res.reviews))
-  }
-
-  const getReviewWords = (review) => { 
-    console.log(review.match(/\b[\w']+\b/g))
-  }
+  useEffect(() => {
+    const tempWords = {}
+    splitReviews.map((reviewArr) => {
+       return reviewArr.map((word) => {
+         return tempWords[word]? tempWords[word] += 1 : tempWords[word] = 1; 
+      })
+    })
+    setWordFrequency(tempWords);
+  }, [splitReviews])
 
   
   return (
