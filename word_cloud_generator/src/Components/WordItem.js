@@ -1,7 +1,9 @@
-const WordItem = () => {
+const WordItem = (uniqueWord) => {
     
     return (
-        <h2>This is a word item</h2>
+        <tr>
+            <td>{uniqueWord.word}</td><td>{uniqueWord.occurences}</td>
+        </tr>
     )
 }
 

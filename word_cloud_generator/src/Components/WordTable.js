@@ -1,7 +1,26 @@
-const WordTable = () => {
+import WordItem from './WordItem'
+
+const WordTable = ({wordFrequencies}) => {
+    
+    const wordItems = wordFrequencies.map((uniqueWord, index) => {
+        return <WordItem word={uniqueWord} key={index} />
+    })
     
     return (
-        <h2>This is a word table</h2>
+        <>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Word</th>
+                        <th>Occurences</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {wordItems}
+                </tbody>
+            </table>
+        </>
+            
     )
 }
 

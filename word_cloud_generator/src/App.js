@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import WordTable from './Components/WordItem';
+import WordTable from './Components/WordTable';
 
 function App() {
   
   const [reviews, setReviews] = useState([]);
   const [splitReviews, setSplitReviews] = useState([]);
-  const [wordFrequency, setWordFrequency] = useState({});
+  const [wordFrequencies, setWordFrequencies] = useState([]);
   
   const getReviews = () => {
     fetch(`reviews.json`)
@@ -31,14 +31,19 @@ function App() {
          return tempWords[word]? tempWords[word] += 1 : tempWords[word] = 1; 
       })
     })
-    setWordFrequency(tempWords);
+
+    const wordItemsArr = Object.keys(tempWords).map((word) => {
+      return {word: word, occurences: tempWords[word]}
+    })
+    console.log(wordItemsArr)
+    setWordFrequencies(wordItemsArr);
   }, [splitReviews])
 
   
   return (
     <>
       <h1>This is the main container</h1>
-      <WordTable />
+      <WordTable wordFrequencies={wordFrequencies}/>
     </>
   );
 }
