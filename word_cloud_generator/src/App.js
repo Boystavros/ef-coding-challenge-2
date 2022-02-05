@@ -8,24 +8,24 @@ function App() {
   const [words, setWords] = useState({});
   
   useEffect(() => {
-    getData()
+    getReviews()
   }, [])
 
-  useEffect(() => {
-    const review = reviews[9];
-    console.log(review)
-    getReviewWords(review)
-  }, [reviews])
+  // useEffect(() => {
+  //   const review = reviews[9];
+  //   console.log(review)
+  //   getReviewWords(review)
+  // }, [reviews])
 
-  const getData = () => {
+  const getReviews = () => {
     fetch(`reviews.json`)
     .then(res => res.json())
     .then(res => setReviews(res.reviews))
   }
 
-  const getReviewWords = (review) => { 
-    console.log(review.match(/\b[\w']+\b/g))
-  }
+  // const getReviewWords = (review) => { 
+  //   console.log(review.match(/\b[\w']+\b/g))
+  // }
   
   return (
     <>
