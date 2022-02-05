@@ -1,8 +1,8 @@
-const WordItem = (uniqueWord) => {
+const WordItem = ({word, occurences}) => {
     
     return (
         <tr>
-            <td>{uniqueWord.word}</td><td>{uniqueWord.occurences}</td>
+            <td>{word}</td><td>{occurences}</td>
         </tr>
     )
 }

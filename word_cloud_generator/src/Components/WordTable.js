@@ -3,7 +3,7 @@ import WordItem from './WordItem'
 const WordTable = ({wordFrequencies}) => {
     
     const wordItems = wordFrequencies.map((uniqueWord, index) => {
-        return <WordItem word={uniqueWord} key={index} />
+        return <WordItem word={uniqueWord.word} occurences={uniqueWord.occurences} key={index} />
     })
     
     return (
@@ -16,7 +16,7 @@ const WordTable = ({wordFrequencies}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {wordItems}
+                    { wordItems }
                 </tbody>
             </table>
         </>
