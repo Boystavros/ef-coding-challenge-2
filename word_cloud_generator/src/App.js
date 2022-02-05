@@ -11,11 +11,12 @@ function App() {
     getReviews()
   }, [])
 
-  // useEffect(() => {
-  //   const review = reviews[9];
-  //   console.log(review)
-  //   getReviewWords(review)
-  // }, [reviews])
+  useEffect(() => {
+    const reviewWords = reviews.map((review) => {
+      return review.match(/\b[\w']+\b/g)})
+    setWords(reviewWords)
+
+  }, [reviews])
 
   const getReviews = () => {
     fetch(`reviews.json`)
@@ -23,9 +24,10 @@ function App() {
     .then(res => setReviews(res.reviews))
   }
 
-  // const getReviewWords = (review) => { 
-  //   console.log(review.match(/\b[\w']+\b/g))
-  // }
+  const getReviewWords = (review) => { 
+    console.log(review.match(/\b[\w']+\b/g))
+  }
+
   
   return (
     <>
