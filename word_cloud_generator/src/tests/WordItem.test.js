@@ -16,12 +16,12 @@ describe('Word Item', () => {
     })
 
     it('should display the word', () => {
-        const wordCell = container.find('#word-cell');
+        const wordCell = container.find('.word-cell');
         expect(wordCell.text()).toEqual('test');
     });
 
     it('should display the occurences', () => {
-        const occurencesCell = container.find('#occurences-cell');
+        const occurencesCell = container.find('.occurences-cell');
         expect(occurencesCell.text()).toEqual('1');
     })
 
