@@ -3,8 +3,8 @@ import { Table } from 'react-bootstrap';
 
 const WordTable = ({wordFrequencies}) => {
     
-    const wordItems = wordFrequencies.map((uniqueWord) => {
-        return  <WordItem word={uniqueWord} />
+    const wordItems = wordFrequencies.map((uniqueWord, index) => {
+        return  <WordItem word={uniqueWord} key={index}/>
     })
     
     return (

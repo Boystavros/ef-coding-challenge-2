@@ -1,8 +1,8 @@
 const WordItem = ({word}) => {
     
     return  <tr>
-                <td>{word.word}</td>
-                <td>{word.occurences}</td>
+                <td id="word-cell">{word.word}</td>
+                <td id="occurences-cell">{word.occurences}</td>
             </tr>
 }
 
