@@ -17,7 +17,7 @@ const ReviewWordCloud = ({wordFrequencies}) => {
         series: [{
             type: 'wordcloud',
             data: wordData,
-            // name: 'Occurences'
+            name: 'Occurences'
         }],
         title: {
             text: 'Word cloud of product review words'
@@ -25,8 +25,8 @@ const ReviewWordCloud = ({wordFrequencies}) => {
     }
 
     return (
-        <div>
-        <HighchartsReact highcharts={Highcharts} options={options} />
+        <div className="word-cloud">
+            <HighchartsReact highcharts={Highcharts} options={options} />
         </div>
       )
 
